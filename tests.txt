@@ -1,0 +1,296 @@
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'CREATE /devices
+content-type : application/json
+
+{"type" : "COMPUTER", "name" : "A1"}'
+
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'CREATE /devices
+content-type : application/json
+
+{"type" : "COMPUTER", "name" : "A2"}'
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'CREATE /devices
+content-type : application/json
+
+{"type" : "COMPUTER", "name" : "A3"}'
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'CREATE /devices
+content-type : application/json
+
+{"type" : "BRIDGE", "name" : "A9","bridgeType": "LOWER" }'
+
+
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'CREATE /connections
+content-type : application/json
+
+{"source" : "A2", "targets" : ["A9"]}'
+
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'CREATE /connections
+content-type : application/json
+
+{"source" : "A9", "targets" : ["A3"]}'
+
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'CREATE /devices
+content-type : application/json
+
+{"type" : "BRIDGE", "name" : "A8","bridgeType": "UPPER" }'
+
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'CREATE /connections
+content-type : application/json
+
+{"source" : "A8", "targets" : ["A1","A2"]}'
+
+A1->A8->A2->A9->A3
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'SEND /devices
+content-type : application/json
+
+{"message" : "AaaaAAbbbA", "fromNode" : "A2","toNode" : "A3"}'
+
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'CREATE /devices
+content-type : application/json
+
+{"type" : "BRIDGE", "name" : "A8","bridgeType": "UPPER" }'
+
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'CREATE /devices
+content-type : application/json
+
+{"type" : "COMPUTER", "name" : "A2"}'
+
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'CREATE /devices
+content-type : application/json
+
+{"type" : "COMPUTER", "name" : "A3"}'
+
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'CREATE /devices'
+
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'CREATE /devices
+content-type : application/json
+
+{"type" : "PHONE", "name" : "A3"}'
+
+
+
+
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'CREATE /devices
+content-type : application/json
+
+{"type" : "COMPUTER", "name" : "A1"}'
+
+
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'CREATE /devices
+content-type : application/json
+
+{"type" : "COMPUTER", "name" : "A4"}'
+
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'CREATE /devices
+content-type : application/json
+
+{"type" : "COMPUTER", "name" : "A5"}'
+
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'CREATE /devices
+content-type : application/json
+
+{"type" : "COMPUTER", "name" : "A6"}'
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'CREATE /devices
+content-type : application/json
+
+{"type" : "REPEATER", "name" : "R1"}'
+
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'MODIFY /devices/A1/strength
+content-type : application/json
+
+{"value": "Helloworld"}'
+
+
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'MODIFY /devices/A10/strength
+content-type : application/json
+
+{"value": "Helloworld"}'
+
+
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'MODIFY /devices/A1/strength
+content-type : application/json
+
+{"value": 2}'
+
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'CREATE /connections
+content-type : application/json
+
+{"source" : "A1", "targets" : ["A2", "A3"]}'
+
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'CREATE /connections
+content-type : application/json
+
+{"source" : "A1", "targets" : ["A1"]}'
+
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'CREATE /connections
+content-type : application/json
+
+{"source" : "A1", "targets" : ["A2"]}'
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'CREATE /connections
+content-type : application/json
+
+{"source" : "A5", "targets" : ["A4"]}'
+
+
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'CREATE /connections
+content-type : application/json
+
+{"source" : "R1", "targets" : ["A2"]}'
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'CREATE /connections
+content-type : application/json
+
+{"source" : "R1", "targets" : ["A5"]}'
+
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'CREATE /connections
+content-type : application/json
+
+{"source" : "R1"}'
+
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'CREATE /connections'
+
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'CREATE /connections
+content-type : application/json
+
+{"source" : "A8", "targets" : ["A1"]}'
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'CREATE /connections
+content-type : application/json
+
+{"source" : "A2", "targets" : ["A4"]}'
+
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'FETCH /info-routes?from=A1&to=A4'
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'FETCH /info-routes?from=A1&to=A5'
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'FETCH /info-routes?from=A4&to=A3'
+
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'FETCH /info-routes?from=A1&to=A1'
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'FETCH /info-routes?from=A1&to=A6'
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'FETCH /info-routes?from=A2&to=R1'
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'FETCH /info-routes?from=A3'
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'FETCH /info-routes'
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'FETCH /info-routes?from=A1&to=A10'
+
+curl -v --request POST \
+--url http://localhost:8080/ajiranet/process \
+--data 'FETCH /devices'
+
+
+[Computer{strength=2Node{name=A1, directConnections=[A2, A3]}}, Computer{strength=5Node{name=A2, directConnections=[A1, R1, A4]}}, Computer{strength=5Node{name=A3, directConnections=[A1]}}, Computer{strength=5Node{name=A4, directConnections=[A5, A2]}}, Computer{strength=5Node{name=A5, directConnections=[A4, R1]}}, Computer{strength=5Node{name=A6, directConnections=[]}}, Repeater{Node{name=R1, directConnections=[A2, A5]}}]

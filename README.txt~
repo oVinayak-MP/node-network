@@ -1,0 +1,27 @@
+Steps
+
+Build the jar by executing the following command from the same location this file was found
+
+mvn clean package 
+
+execute the jar file at target folder(./target/basic-0.0.1-SNAPSHOT.jar)
+or  use command
+mvn spring-boot:run
+
+verify the application with the curl commands provided in tests.txt file along woth provided test case.
+The port and host name would be 8080 and localhost.
+
+
+Notes:
+In problem statement it was mentioned 'If the message being sent encounters a repeater, it's strength will be amplified by double its current strength.' but this doesn't comply with the test cases provided.Hence  the logic to find the paths was modified for repeaters to work with the given test case.
+The implementation of the path logic is that the strength of message is affected only by the starting node and repeaters in the path.
+
+The curl command given in the testcases submits data as application/x-www-form-urlencoded.
+Hence added support for same and text/plain
+
+end of line in custom request can be both \n or \r\n 
+
+
+
+
+
